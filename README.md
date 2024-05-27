@@ -3,7 +3,6 @@ Regex Validator Project
 Using Python, Tkinter, and Regular Expressions
 By Yazan Rajab
 5/22/2024
-"""
 
 # imports i used
 import re
