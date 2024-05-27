@@ -1,0 +1,3 @@
+tkinter for the gui : https://docs.python.org/3/library/tkinter.html#a-hello-world-program
+For python file handling: https://www.w3schools.com/python/python_file_handling.asp
+for testing the regular expretion i used : https://regex101.com/
