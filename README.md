@@ -1,3 +1,10 @@
+"""
+Regex Validator Project
+Using Python, Tkinter, and Regular Expressions
+By Yazan Rajab
+5/22/2024
+"""
+
 import re
 import tkinter as tk
 from tkinter import filedialog, simpledialog, messagebox
