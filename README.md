@@ -14,6 +14,7 @@ testCases = [
     "_validVar123 = 45"
 ]
 
+# Check each test case
 for test in testCases:
     match = re.match(pattern, test)
     if match:
