@@ -1,30 +1,29 @@
-# overview
-Regex Validator Project
-Using Python, Tkinter, and Regular Expressions
-By Yazan Rajab
-5/22/2024
-
-# imports i used
 import re
 import tkinter as tk
 from tkinter import filedialog, simpledialog, messagebox
 
-# The regular expression pattern
-pattern = r'^[a-zA-Z_][a-zA-Z0-9_]*\s*=\s*(\d+(\.\d+)?|".*?"|true|True|false|False)$'
+# Patterns for different types of input
+identifier_pattern = r'^[a-zA-Z_][a-zA-Z0-9_]*'
+numeric_pattern = r'\d+(\.\d+)?'
+string_pattern = r'".*?"'
+boolean_pattern = r'true|false|True|False'
+
+# Combined pattern for validation
+pattern = re.compile(fr'({identifier_pattern})\s*=\s*({numeric_pattern}|{string_pattern}|{boolean_pattern})$')
 
 
 # To see if the String from user is valid by our pattern
 def validate_line(line):
-    match = re.match(pattern, line)
+    match = pattern.match(line.strip())
     if match:
-        return f"({line}) is valid."
+        return f"({line.strip()}) is valid."
     else:
-        return f"({line}) is not valid."
+        return f"({line.strip()}) is not valid."
 
 
 # Adding text from user to the window
 def add_to_result(content):
-    results = [validate_line(line.strip()) for line in content]
+    results = [validate_line(line) for line in content]
     results_text = "\n".join(results)  # insert the line into result_text
     result_window = tk.Toplevel(root)  # create the window
     result_window.title("Validation Results")  # Title
